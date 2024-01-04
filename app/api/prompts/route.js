@@ -4,10 +4,10 @@ import { NextResponse } from "next/server"
 
 export async function POST(request){
     try {
-        const {prompt, tag, ppublic} = await request.json(); 
+        const {prompt, tag, ppublic, userId} = await request.json(); 
         await connectToDB();
-
-        await Prompt.create({prompt, tag, ppublic});
+        await Prompt.create({prompt, tag, ppublic, userId});
+        console.log({prompt, tag, ppublic, userId})
         return NextResponse.json({message: "prompt created"}, {status: 201});
     } catch (error) {
         console.log(error)

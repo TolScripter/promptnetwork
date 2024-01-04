@@ -7,13 +7,17 @@ const PromptSchema = new Schema(
             type: String,
             required: [true, "The prompt field is required!"]
         },
-        tags:{
+        tag:{
             type: String,
             required: [true, "The tags field is required!"]
         },
         ppublic:{
             type: Boolean,
             default: true
+        }, 
+        userId:{
+            type: String,
+            required: true
         }
     },
     {
